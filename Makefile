@@ -45,7 +45,7 @@ all: dev
 ## Miscellaneous
 
 serve: stamp-npm
-	$(HTTPSERVE) -p 8000
+	$(HTTPSERVE) -p 8011
 
 ########################################################################
 ## Translation machinery

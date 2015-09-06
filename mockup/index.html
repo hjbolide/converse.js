@@ -8,6 +8,7 @@
     <link type="text/css" href="../css/theme.css" rel="stylesheet" media="screen" />
     <link type="text/css" href="../css/converse.css" rel="stylesheet" media="screen" />
     <script src="../components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.2.65/css/materialdesignicons.min.css">
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
@@ -15,7 +16,7 @@
 <div id="header_wrap" class="outer">
     <header class="inner">
         <h1 id="project_title"><a href="http://conversejs.org">Converse.js</a></h1>
-        <h2 id="project_tagline">Static Mockup</h2>
+        <h2 id="project_tagline">Static Mockup</h2>        
     </header>
 </div>
 
@@ -29,22 +30,37 @@
         <div class="box-flyout">
             <div class="dragresize dragresize-tm"></div>
             <div class="chat-head controlbox-head">
-                <ul id="controlbox-tabs">
-                    <li><a class="current" href="#login-dialog">Sign in</a></li>
-                    <li><a class="s" href="#register">Register</a></li>
-                </ul>
-                <a class="close-chatbox-button icon-close"></a>
+              <div class="tabs">
+                <ul>
+                  <li class="tabitem">
+                    <a class="current" href="#login-dialog">Sign in</a>
+                  </li>
+                  <li class="tabitem">
+                    <a href="#register">Register</a>
+                  </li>
+                </ul>                
+              </div>
+              <div class="close-chat"></div>
             </div>
             <div class="controlbox-panes">
-                <div id="login-dialog" class="controlbox-pane"><form id="converse-login" method="post">
+              <div id="login-dialog" class="controlbox-pane">
+                <form id="converse-login" method="post">
+                  <div class="group">
+                    <input type="username" name="jid">
+                    <span class="highlight"></span><span class="bar"></span>
                     <label>XMPP Username:</label>
-                    <input type="username" name="jid" placeholder="user@server">
+                  </div>
+                  <div class="group">                    
+                    <input type="password" name="password">
+                    <span class="highlight"></span><span class="bar"></span>
                     <label>Password:</label>
-                    <input type="password" name="password" placeholder="password">
-                    <input class="submit" type="submit" value="Log In">
-                    <span class="conn-feedback"></span>
+                  </div>
+                  <button class="button buttonRed" type="submit" value="Log In" onclick="return false;">
+                    Log In
+                  </button>
+                  <span class="conn-feedback"></span>
                 </form>
-                </div>
+              </div>
                 <div id="register" class="controlbox-pane" style="display: none;">
                     <form id="converse-register">
                         <span class="reg-feedback"></span>
@@ -65,11 +81,17 @@
         <div class="box-flyout">
             <div class="dragresize dragresize-tm"></div>
             <div class="chat-head controlbox-head">
-                <ul id="controlbox-tabs">
-                    <li><a class="s current" href="#users">Contacts</a></li>
-                    <li><a class="s" href="#chatrooms">Rooms</a></li>
+              <div class="tabs">
+                <ul>
+                  <li class="tabitem">
+                    <a class="current" href="#users">Contacts<span></span></a>
+                  </li>
+                  <li class="tabitem">
+                    <a href="#chatrooms">Rooms<span></span></a>
+                  </li>
                 </ul>
-                <a class="close-chatbox-button icon-close"></a>
+              </div>
+              <a class="close-chatbox-button icon-close"></a>
             </div>
             <div id="users" class="controlbox-pane" style="display: block;">
                 <form class="set-xmpp-status" action="" method="post">
@@ -138,110 +160,95 @@
                             <option value="groups">Groups</option>
                         </select>
                     </span>
-                    <dl class="roster-contacts" style="display: block;">
-                        <dt class="roster-group" style="display: block;">
-                            <a href="#" data-group="Colleagues" class="group-toggle icon-opened" title="Click to hide these contacts">Colleagues</a>
-                        </dt>
-                        <dd class="online current-xmpp-contact">
-                            <a class="open-chat" title="Name: Victor Matfield
-JID: victor.matfield@localhost
-Click to chat with this contact" href="#">
-                                <span class="icon-online" title="This contact is online"></span>
-                                Victor Matfield
-                            </a>
-                            <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
-                        </dd>
-                        <dd class="away current-xmpp-contact">
-                            <a class="open-chat" title="Click to chat with this contact" href="#">
-                                <span class="icon-away" title="this contact is away"></span>
-                                William Winterbottom
-                            </a>
-                            <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
-                        </dd>
-                        <dd class="dnd current-xmpp-contact">
-                            <a class="open-chat" title="Click to chat with this contact" href="#">
-                                <span class="icon-dnd" title="This contact is busy"></span>
-                                Gary Teichmann
-                            </a>
-                            <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
-                        </dd>
+                    <dl class="roster-contacts">
+                      <dt class="roster-group expanded">
+                        <a href="#" data-group="Colleagues" class="group-toggle" title="Click to hide these contacts">Colleagues</a>
+                      </dt>
+                      <dd class="online current-xmpp-contact">
+                        <a class="open-chat"
+                           title="Name: Victor Matfield
+                                  JID: victor.matfield@localhost
+                                  Click to chat with this contact" href="#">
+                          Victor Matfield
+                        </a>
+                      </dd>
+                      <dd class="away current-xmpp-contact">
+                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                          William Winterbottom
+                        </a>
+                      </dd>
+                      <dd class="dnd current-xmpp-contact">
+                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                          Gary Teichmann
+                        </a>
+                      </dd>
 
-                        <dt class="roster-group" style="display: block;">
-                            <a href="#" data-group="Family" class="group-toggle icon-opened" title="Click to hide these contacts">Family</a>
-                        </dt>
-                        <dd class="away current-xmpp-contact">
-                            <a class="open-chat" title="Click to chat with this contact" href="#">
-                                <span class="icon-away" title="this contact is away"></span>
-                                Allan Donald 
-                            </a>
-                            <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
-                        </dd>
-                        <dd class="offline current-xmpp-contact">
-                            <a class="open-chat" title="Click to chat with this contact" href="#">
-                                <span class="icon-offline" title="This contact is offline"></span>
-                                Corné Krige
-                            </a>
-                            <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
-                        </dd>
+                      <dt class="roster-group expanded">
+                        <a href="#" data-group="Family" class="group-toggle" title="Click to hide these contacts">Family</a>
+                      </dt>
+                      <dd class="away current-xmpp-contact">
+                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                          Allan Donald 
+                        </a>
+                      </dd>
+                      <dd class="offline current-xmpp-contact">
+                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                          Corné Krige
+                        </a>
+                      </dd>
 
-                        <dt class="roster-group" style="display: block;">
-                            <a href="#" data-group="Friends" class="group-toggle icon-opened" title="Click to hide these contacts">Friends</a>
-                        </dt>
-                        <dd class="online current-xmpp-contact">
-                            <a class="open-chat" title="Click to chat with this contact" href="#">
-                                <span class="icon-online" title="This contact is online"></span>
-                                John Smit
-                            </a>
-                            <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
-                        </dd>
-                        <dd class="online current-xmpp-contact">
-                            <a class="open-chat" title="Click to chat with this contact" href="#">
-                                <span class="icon-online" title="This contact is online"></span>
-                                Bakkies Botha
-                            </a>
-                            <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
-                        </dd>
+                      <dt class="roster-group expanded">
+                        <a href="#" data-group="Friends" class="group-toggle" title="Click to hide these contacts">Friends</a>
+                      </dt>
+                      <dd class="online current-xmpp-contact">
+                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                          John Smit
+                        </a>
+                      </dd>
+                      <dd class="online current-xmpp-contact">
+                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                          Bakkies Botha
+                        </a>
+                      </dd>
 
-                        <dt class="roster-group" style="display: block;">
-                            <a href="#" class="group-toggle icon-opened" title="Click to hide these contacts">Ungrouped</a>
-                        </dt>
-                        <dd class="online current-xmpp-contact">
-                            <a class="open-chat" title="Click to chat with this contact" href="#">
-                                <span class="icon-online" title="This contact is online"></span>
-                                James Small 
-                            </a>
-                            <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
-                        </dd>
+                      <dt class="roster-group" style="display: block;">
+                        <a href="#" class="group-toggle" title="Click to hide these contacts">Ungrouped</a>
+                      </dt>
+                      <dd class="online current-xmpp-contact">
+                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                          James Small 
+                        </a>
+                      </dd>
 
-                        <dt id="xmpp-contact-requests" style="display: block;">
-                            <a href="#" class="group-toggle icon-opened" title="Click to hide these contacts">Contact Requests</a>
-                        </dt>
-                        <dd class="offline requesting-xmpp-contact">
-                            <span class="req-contact-name" title="Name: Bob Skinstad
-JID: bob.skinstad@localhost">Bob Skinstad</span>
-                            <span class="request-actions">
-                                <a class="accept-xmpp-request icon-checkmark" title="Click here to accept this contact's request" href="#"></a>
-                                <a class="decline-xmpp-request icon-close" title="Click here to decline this contact's request" href="#"></a>
-                            </span>
-                        </dd>
-                        <dd class="offline requesting-xmpp-contact">
-                            <span class="req-contact-name">André Vos</span>
-                            <span class="request-actions">
-                                <a class="accept-xmpp-request icon-checkmark" title="Click here to accept this contact's request" href="#"></a>
-                                <a class="decline-xmpp-request icon-close" title="Click here to decline this contact's request" href="#"></a>
-                            </span>
-                        </dd>
+                      <dt id="xmpp-contact-requests" style="display: block;">
+                        <a href="#" class="group-toggle" title="Click to hide these contacts">Contact Requests</a>
+                      </dt>
+                      <dd class="offline requesting-xmpp-contact">
+                        <span class="req-contact-name" title="Name: Bob Skinstad
+                                                              JID: bob.skinstad@localhost">Bob Skinstad</span>
+                        <span class="request-actions">
+                          <a class="accept-xmpp-request icon-checkmark" title="Click here to accept this contact's request" href="#"></a>
+                          <a class="decline-xmpp-request" title="Click here to decline this contact's request" href="#"></a>
+                        </span>
+                      </dd>
+                      <dd class="offline requesting-xmpp-contact">
+                        <span class="req-contact-name">André Vos</span>
+                        <span class="request-actions">
+                          <a class="accept-xmpp-request icon-checkmark" title="Click here to accept this contact's request" href="#"></a>
+                          <a class="decline-xmpp-request" title="Click here to decline this contact's request" href="#"></a>
+                        </span>
+                      </dd>
 
-                        <dt id="pending-xmpp-contacts" style="display: block;">
-                            <a href="#" class="group-toggle icon-opened" title="Click to hide these contacts">Pending Contacts</a>
-                        </dt>
-                        <dd class="offline pending-xmpp-contact"><span class="pending-contact-name" title="Name: Rassie Erasmus
-JID: rassie.erasmus@localhost">Rassie Erasmus</span>
-                            <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
-                        </dd>
-                        <dd class="offline pending-xmpp-contact"><span class="pending-contact-name">Victor Matfield</span>
-                            <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
-                        </dd>
+                      <dt id="pending-xmpp-contacts" style="display: block;">
+                        <a href="#" class="group-toggle" title="Click to hide these contacts">Pending Contacts</a>
+                      </dt>
+                      <dd class="offline pending-xmpp-contact"><span class="pending-contact-name" title="Name: Rassie Erasmus
+                                                                                                         JID: rassie.erasmus@localhost">Rassie Erasmus</span>
+                        <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
+                      </dd>
+                      <dd class="offline pending-xmpp-contact"><span class="pending-contact-name">Victor Matfield</span>
+                        <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
+                      </dd>
                     </dl>
                 </div>
               </div>
@@ -282,163 +289,132 @@ JID: rassie.erasmus@localhost">Rassie Erasmus</span>
 
     <div class="chatbox" id="37c0c87392010303765fe36b05c0967d62c6b70f">
         <div class="box-flyout">
-            <div class="dragresize dragresize-tm"></div>
             <div class="chat-head chat-head-chatbox">
-                <a class="close-chatbox-button icon-close"></a>
-                <a class="toggle-chatbox-button icon-minus"></a>
-                <canvas height="31px" width="31px" class="avatar" style="background-color: black"></canvas>
-                <div class="chat-title">
-                    <a href="http://opkode.com" target="_blank" class="user">
-                        JC Brand
-                    </a>
-                </div>
-                <p class="user-custom-message" title="10000ft in the air">10000ft in the air</p>
+              <div class="chat-head-vcard"></div>
+              <div class="chat-title">
+                <a href="#" class="chat-title-link">JC Brand</a>
+              </div>
+              <div class="close-chat"></div>
             </div>
             <div class="chat-body">
                 <div class="chat-content">
                     <div class="chat-info"><strong>/help</strong>:This is an info message</div>
                     <div class="chat-error">This is an error message</div>
-                    <div class="chat-message">
-                        <span class="chat-message-me">09:35 me:&nbsp;</span>
-                        <span class="chat-message-content">
-                            Hello world
-                            <span class="icon-smiley"></span>
-                        </span>
+                    <div class="chat-message me">
+                      <div class="circle-wrapper animated bounceIn"></div>
+                      <div class="text-wrapper animated fadeIn">
+                        Hello world
+                      </div>
+                      <!-- <span class="chat-message-me">09:35 me:&nbsp;</span>
+                      <span class="chat-message-content">
+                      Hello world
+                      <span class="icon-smiley"></span>
+                      </span> -->
                     </div>
-                    <div class="chat-message ">
-                        <span class="chat-message-them">19:25 Benedict-John:&nbsp;</span>
-                        <span class="chat-message-content">Dagsê</span>
+                    <div class="chat-message them">
+                      <div class="circle-wrapper animated bounceIn"></div>
+                      <div class="text-wrapper animated fadeIn">
+                        Dagsê
+                      </div>
+                      <!-- <span class="chat-message-them">19:25 Benedict-John:&nbsp;</span>
+                      <span class="chat-message-content">Dagsê</span> -->
                     </div>
-                    <div class="chat-message">
-                        <span class="chat-message-me">19:39 me:&nbsp;</span>
-                        <span class="chat-message-content">This is a relatively long message to check that wrapping works as expected.</span>
+                    <div class="chat-message me">
+                      <div class="circle-wrapper animated bounceIn"></div>
+                      <div class="text-wrapper animated fadeIn">
+                        This is a relatively long message to check that wrapping works as expected.
+                      </div>
                     </div>
-                    <div class="chat-message">
-                        <span class="chat-message-me">19:42 me:&nbsp;</span>
-                        <span class="chat-message-content">Supercalifragilisticexpialidociousstillnotlongenough</span>
+                    <div class="chat-message them">
+                      <div class="circle-wrapper animated bounceIn"></div>
+                      <div class="text-wrapper animated fadeIn">
+                        Supercalifragilisticexpialidociousstillnotlongenough
+                      </div>
                     </div>
+
                     <div class="chat-event">JC Brand is busy</div>
-                    <div class="chat-message ">
-                        <span class="chat-message-me">19:43 me:&nbsp;</span>
-                        <span class="chat-message-content">Another message to check that scrolling works.</span>
+
+                    <div class="chat-message me">
+                      <div class="circle-wrapper animated bounceIn"></div>
+                      <div class="text-wrapper animated fadeIn">
+                        Another message to check that scrolling works.
+                      </div>
                     </div>
                 </div>
 
                 <form class="sendXMPPMessage" action="" method="post">
-                    <ul class="chat-toolbar no-text-select">
-                        <li class="toggle-smiley icon-happy" title="Insert a smilery">
-                            <ul>
-                                <li><a class="icon-smiley" href="#" data-emoticon=":)"></a></li>
-                                <li><a class="icon-wink" href="#" data-emoticon=";)"></a></li>
-                                <li><a class="icon-grin" href="#" data-emoticon=":D"></a></li>
-                                <li><a class="icon-tongue" href="#" data-emoticon=":P"></a></li>
-                                <li><a class="icon-cool" href="#" data-emoticon="8)"></a></li>
-                                <li><a class="icon-evil" href="#" data-emoticon=">:)"></a></li>
-                                <li><a class="icon-confused" href="#" data-emoticon=":S"></a></li>
-                                <li><a class="icon-wondering" href="#" data-emoticon=":\"></a></li>
-                                <li><a class="icon-angry" href="#" data-emoticon=">:("></a></li>
-                                <li><a class="icon-sad" href="#" data-emoticon=":("></a></li>
-                                <li><a class="icon-shocked" href="#" data-emoticon=":O"></a></li>
-                                <li><a class="icon-thumbs-up" href="#" data-emoticon="(^.^)b"></a></li>
-                                <li><a class="icon-heart" href="#" data-emoticon="<3"></a></li>
-                            </ul>
-                        </li>
-                        <li class="toggle-clear"><a class="icon-remove" title="Clear all messages"></a></li>
-                        <li class="toggle-otr unencrypted" title="Your messages are not encrypted. Click here to enable OTR encryption.">
-                        <span class="chat-toolbar-text">unencrypted</span>
-                            <span class="icon-unlocked"></span>
-                                <ul>
-                                <li><a class="start-otr" href="#">Start encrypted conversation</a></li>
-                                <li><a href="http://www.cypherpunks.ca/otr/help/3.2.0/levels.php" target="_blank">What's this?</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                  <div class="chat-bottom">
                     <textarea type="text" class="chat-textarea" placeholder="Personal message"></textarea>
+                    <div class="emoji"></div>
+                  </div>
                 </form>
             </div>
         </div>
     </div>
 
     <div class="chatroom" id="4a77380f1cd9d392627b0e1469688f9ca44e9392">
-        <div class="box-flyout">
-            <div class="dragresize dragresize-tm"></div>
-            <div class="chat-head chat-head-chatroom">
-                <a class="close-chatbox-button icon-close"></a>
-                <a class="toggle-chatbox-button icon-minus"></a>
-                <a class="configure-chatroom-button icon-wrench" style=""></a>
-
-                <div class="chat-title"> Chatroom </div>
-                <p class="chatroom-topic">May the force be with you</p>
-            </div>
-            <div class="chat-body">
-                <div class="chat-area">
-                    <div class="chat-content">
-                        <div class="chat-message ">
-                            <span class="chat-message-room">18:50 luke:&nbsp;</span>
-                            <span class="chat-message-content">leia: hi :)</span>
-                        </div>
-                        <div class="chat-message ">
-                            <span class="chat-message-room">19:40 leia:&nbsp;</span>
-                            <span class="chat-message-content">
-                                I'll be gone for a while, will be back in about an hour</span>
-                        </div>
-                        <time class="chat-date" datetime="2013-06-04T00:00:00.000Z">Tue Jun 04 2013</time>
-                        <div class="chat-message ">
-                            <span class="chat-message-room">19:40 Obi-wan Kenobi, Jedi Master:&nbsp;</span>
-                            <span class="chat-message-content">
-                                I'll be gone for a while, will be back in about an hour</span>
-                        </div>
-                        <div class="chat-message">
-                            <span class="chat-message-me">19:42 me:&nbsp;</span>
-                            <span class="chat-message-content">Supercalifragilisticexpialidociousstillnotlongenough</span>
-                        </div>
-                        <div class="chat-message ">
-                            <span class="chat-message-room">19:43 Obi-wan Kenobi, Jedi Master:&nbsp;</span>
-                            <span class="chat-message-content">Another message to check that scrolling works.</span>
-                        </div>
-                    </div>
-
-                    <form class="sendXMPPMessage" action="" method="post">
-                        <ul class="chat-toolbar no-text-select">
-                            <li class="toggle-smiley icon-happy" title="Insert a smilery">
-                                <ul>
-                                    <li><a class="icon-smiley" href="#" data-emoticon=":)"></a></li>
-                                    <li><a class="icon-wink" href="#" data-emoticon=";)"></a></li>
-                                    <li><a class="icon-grin" href="#" data-emoticon=":D"></a></li>
-                                    <li><a class="icon-tongue" href="#" data-emoticon=":P"></a></li>
-                                    <li><a class="icon-cool" href="#" data-emoticon="8)"></a></li>
-                                    <li><a class="icon-evil" href="#" data-emoticon=">:)"></a></li>
-                                    <li><a class="icon-confused" href="#" data-emoticon=":S"></a></li>
-                                    <li><a class="icon-wondering" href="#" data-emoticon=":\"></a></li>
-                                    <li><a class="icon-angry" href="#" data-emoticon=">:("></a></li>
-                                    <li><a class="icon-sad" href="#" data-emoticon=":("></a></li>
-                                    <li><a class="icon-shocked" href="#" data-emoticon=":O"></a></li>
-                                    <li><a class="icon-thumbs-up" href="#" data-emoticon="(^.^)b"></a></li>
-                                    <li><a class="icon-heart" href="#" data-emoticon="<3"></a></li>
-                                </ul>
-                            </li>
-                            <li class="toggle-participants"><a class="icon-hide-users" title="Hide the list of participants"></a></li>
-                            <li class="toggle-clear"><a class="icon-remove" title="Clear all messages"></a></li>
-                        </ul>
-                        <textarea type="text" class="chat-textarea" placeholder="Message"></textarea>
-                    </form>
-                </div>
-                <div class="participants">
-                    <form class="room-invite">
-                        <input class="invited-contact tt-input" placeholder="Invite..." type="text"/>
-                    </form>
-                    <label>Participants:</label>
-                    <ul class="participant-list">
-                        <li class="participant" title="This user can send messages in this room">Obi-wan Kenobi, Jedi Master</li>
-                        <li class="participant" title="This user can send messages in this room">jabber the hut</li>
-                        <li class="participant" title="This user can send messages in this room">leia</li>
-                        <li class="moderator" title="This user is a moderator">luke</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="box-flyout">
+	<div class="chat-head chat-head-chatroom">
+	  <div class="chat-title">
+            Chatroom
+          </div>
+          <div class="chat-options"></div>
+          <div class="close-chat"></div>
         </div>
-    </div>
+        <div class="chat-body">
+          <div class="chat-area">
+            <div class="chat-content">
+              <div class="chat-message them">
+                <div class="text-wrapper animated fadeIn">
+                  leia: hi :)
+                </div>
+              </div>
+              <div class="chat-message them">
+                <div class="text-wrapper animated fadeIn">
+                  I'll be gone for a while, will be back in about an hour
+                </div>
+              </div>
+              <time class="chat-date" datetime="2013-06-04T00:00:00.000Z">Tue Jun 04 2013</time>
+              <div class="chat-message them">
+                <div class="text-wrapper animated fadeIn">
+                  I'll be gone for a while, will be back in about an hour
+                </div>
+              </div>
+              <div class="chat-message me">
+                <div class="text-wrapper animated fadeIn">
+                  Supercalifragilisticexpialidociousstillnotlongenough
+                </div>
+              </div>
+              <div class="chat-message them">
+                <div class="text-wrapper animated fadeIn">
+                  Another message to check that scrolling works.
+                </div>
+              </div>
+            </div>
 
+            <form class="sendXMPPMessage" action="" method="post">
+              <div class="chat-bottom">
+                <textarea type="text" class="chat-textarea" placeholder="Message"></textarea>
+                <div class="emoji"></div>
+              </div>
+            </form>
+          </div>
+          <div class="participants">
+            <form class="room-invite">
+              <input class="invited-contact tt-input" placeholder="Invite..." type="text"/>
+            </form>
+            <label>Participants:</label>
+            <ul class="participant-list">
+              <li class="participant" title="This user can send messages in this room">Obi-wan Kenobi, Jedi Master</li>
+              <li class="participant" title="This user can send messages in this room">jabber the hut</li>
+              <li class="participant" title="This user can send messages in this room">leia</li>
+              <li class="moderator" title="This user is a moderator">luke</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <div class="chatroom" id="6d8627960a0cb066d9216742f3edccc3dbbf85a9">
         <div class="box-flyout">
             <div class="dragresize dragresize-tm"></div>
@@ -548,6 +524,10 @@ $(document).ready(function () {
         switchTab(ev);
     });
 
+    $('a[href=#login-dialog]').click(function (ev) { 
+        switchTab(ev);
+    });
+
     $("a.choose-xmpp-status").click(function (ev) {
         ev.preventDefault();
         $(ev.target).parent().parent().siblings('dd').find('ul').toggle('fast');
@@ -575,16 +555,18 @@ $(document).ready(function () {
     });
 
     var switchTab = function (ev) {
-        ev.preventDefault();
-        var $tab = $(ev.target),
-            $sibling = $tab.parent().siblings('li').children('a'),
-            $tab_panel = $($tab.attr('href')),
-            $sibling_panel = $($sibling.attr('href'));
+      ev.preventDefault();
+      var $tab = $(ev.target),
+        $li = $tab.parent().siblings('li'),
+        $sibling = $li.children('a'),
+        $tab_panel = $($tab.attr('href')),
+        $sibling_panel = $($sibling.attr('href'));
 
-        $sibling_panel.hide();
-        $sibling.removeClass('current');
-        $tab.addClass('current');
-        $tab_panel.show();
+      $sibling_panel.hide();
+      $sibling.removeClass('current');
+      
+      $tab.addClass('current');
+      $tab_panel.show();
     }
 
     $(function() {
@@ -597,6 +579,16 @@ $(document).ready(function () {
                 document.getElementById('conversejs').style.display = 'block';
             });
         });
+
+	$('.close-chat').click(function (ev) {
+	    var $grandparent = $(ev.target).parent().parent().parent();
+            $grandparent.hide(300, function () {
+                // Webkit fix
+                document.getElementById('conversejs').style.display = 'none';
+                document.getElementById('conversejs').offsetHeight; // no need to store this anywhere, the reference is enough
+                document.getElementById('conversejs').style.display = 'block';
+            });
+	});
 
         $('.toggle-participants a').click(function (ev) {
             var $el = $(ev.target);
