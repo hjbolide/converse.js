@@ -164,21 +164,21 @@
                       <dt class="roster-group expanded">
                         <a href="#" data-group="Colleagues" class="group-toggle" title="Click to hide these contacts">Colleagues</a>
                       </dt>
-                      <dd class="online current-xmpp-contact">
-                        <a class="open-chat"
+                      <dd class="online xmpp-contact current">
+                        <a class="open-chat contact-row"
                            title="Name: Victor Matfield
                                   JID: victor.matfield@localhost
                                   Click to chat with this contact" href="#">
                           Victor Matfield
                         </a>
                       </dd>
-                      <dd class="away current-xmpp-contact">
-                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                      <dd class="away xmpp-contact current">
+                        <a class="open-chat contact-row" title="Click to chat with this contact" href="#">
                           William Winterbottom
                         </a>
                       </dd>
-                      <dd class="dnd current-xmpp-contact">
-                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                      <dd class="dnd xmpp-contact current">
+                        <a class="open-chat contact-row" title="Click to chat with this contact" href="#">
                           Gary Teichmann
                         </a>
                       </dd>
@@ -186,13 +186,13 @@
                       <dt class="roster-group expanded">
                         <a href="#" data-group="Family" class="group-toggle" title="Click to hide these contacts">Family</a>
                       </dt>
-                      <dd class="away current-xmpp-contact">
-                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                      <dd class="away xmpp-contact current">
+                        <a class="open-chat contact-row" title="Click to chat with this contact" href="#">
                           Allan Donald 
                         </a>
                       </dd>
-                      <dd class="offline current-xmpp-contact">
-                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                      <dd class="offline xmpp-contact current">
+                        <a class="open-chat contact-row" title="Click to chat with this contact" href="#">
                           Corné Krige
                         </a>
                       </dd>
@@ -200,54 +200,59 @@
                       <dt class="roster-group expanded">
                         <a href="#" data-group="Friends" class="group-toggle" title="Click to hide these contacts">Friends</a>
                       </dt>
-                      <dd class="online current-xmpp-contact">
-                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                      <dd class="online xmpp-contact current">
+                        <a class="open-chat contact-row" title="Click to chat with this contact" href="#">
                           John Smit
                         </a>
                       </dd>
-                      <dd class="online current-xmpp-contact">
-                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                      <dd class="online xmpp-contact current">
+                        <a class="open-chat contact-row" title="Click to chat with this contact" href="#">
                           Bakkies Botha
                         </a>
                       </dd>
 
-                      <dt class="roster-group" style="display: block;">
-                        <a href="#" class="group-toggle" title="Click to hide these contacts">Ungrouped</a>
+                      <dt class="roster-group expanded">
+                        <a href="#" data-group="ungrouped" class="group-toggle" title="Click to hide these contacts">Ungrouped</a>
                       </dt>
-                      <dd class="online current-xmpp-contact">
-                        <a class="open-chat" title="Click to chat with this contact" href="#">
+                      <dd class="online xmpp-contact current">
+                        <a class="open-chat contact-row" title="Click to chat with this contact" href="#">
                           James Small 
                         </a>
                       </dd>
 
-                      <dt id="xmpp-contact-requests" style="display: block;">
-                        <a href="#" class="group-toggle" title="Click to hide these contacts">Contact Requests</a>
+                      <dt id="xmpp-contact-requests" class="roster-group expanded">
+                        <a href="#" data-group="chat_requests" class="group-toggle" title="Click to hide these contacts">Contact Requests</a>
                       </dt>
-                      <dd class="offline requesting-xmpp-contact">
-                        <span class="req-contact-name" title="Name: Bob Skinstad
-                                                              JID: bob.skinstad@localhost">Bob Skinstad</span>
-                        <span class="request-actions">
-                          <a class="accept-xmpp-request icon-checkmark" title="Click here to accept this contact's request" href="#"></a>
-                          <a class="decline-xmpp-request" title="Click here to decline this contact's request" href="#"></a>
+                      <dd class="offline xmpp-contact requesting">
+                        <a href="#" class="contact-row">Bob Skinstad</a>
+                        
+                        <span class="request-actions actions">
+                          <a class="accept xmpp-request action" title="Click here to accept this contact's request" href="#"></a>
+                          <a class="decline xmpp-request action" title="Click here to decline this contact's request" href="#"></a>
                         </span>
                       </dd>
-                      <dd class="offline requesting-xmpp-contact">
-                        <span class="req-contact-name">André Vos</span>
-                        <span class="request-actions">
-                          <a class="accept-xmpp-request icon-checkmark" title="Click here to accept this contact's request" href="#"></a>
-                          <a class="decline-xmpp-request" title="Click here to decline this contact's request" href="#"></a>
+                      <dd class="offline xmpp-contact requesting">
+                        <a href="#" class="contact-row">André Vos</a>
+                        <span class="request-actions actions">
+                          <a class="accept xmpp-request action" title="Click here to accept this contact's request" href="#"></a>
+                          <a class="decline xmpp-request action" title="Click here to decline this contact's request" href="#"></a>
                         </span>
                       </dd>
 
-                      <dt id="pending-xmpp-contacts" style="display: block;">
-                        <a href="#" class="group-toggle" title="Click to hide these contacts">Pending Contacts</a>
+                      <dt id="pending-xmpp-contacts" class="roster-group expanded">
+                        <a href="#" data-group="pending_requests" class="group-toggle" title="Click to hide these contacts">Pending Contacts</a>
                       </dt>
-                      <dd class="offline pending-xmpp-contact"><span class="pending-contact-name" title="Name: Rassie Erasmus
-                                                                                                         JID: rassie.erasmus@localhost">Rassie Erasmus</span>
-                        <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
+                      <dd class="offline xmpp-contact pending">
+                        <a href="#" class="contact-row">Rassie Erasmus</a>
+                        <span class="actions">
+                          <a class="remove xmpp-contact action"></a>
+                        </span>
                       </dd>
-                      <dd class="offline pending-xmpp-contact"><span class="pending-contact-name">Victor Matfield</span>
-                        <a class="remove-xmpp-contact icon-remove" title="Click to remove this contact" href="#"></a>
+                      <dd class="offline xmpp-contact pending">
+                        <a href="#" class="contact-row">Victor Matfield</a>
+                        <span class="actions">
+                          <a class="remove xmpp-contact action"></a>
+                        </span>
                       </dd>
                     </dl>
                 </div>

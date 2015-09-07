@@ -51,9 +51,9 @@
     display: block;
     width: auto;
 
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     *, *:before, *:after {
-        @include box-sizing(border-box);
+        box-sizing: border-box;
     }
 
     @media screen and (max-width: $mobile-landscape-length) {
@@ -878,17 +878,42 @@
                 }
             }
 
-            dd.current-xmpp-contact {
-                text-indent: 8px;
+            dd.xmpp-contact {
+                margin: 0 12px;
                 line-height: 32px;
+                width: calc(100% - 24px);
 
-                a {
+                span.actions {
+                    float: right;
+
+                    a.action {
+                        background-size: contain;
+                        display: inline-block;
+                        width: 18px;
+                        height: 18px;
+                        vertical-align: middle;
+
+                        &.accept {
+                            background: url("images/ic_check_black_18px.svg");
+                        }
+
+                        &.decline {
+                            background: url("images/ic_close_black_18px.svg");
+                        }
+
+                        &.remove {
+                            background: url("images/ic_delete_black_18px.svg");
+                        }
+                    }
+                }
+
+                a.contact-row {
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
                     margin-left: 6px;
                     color: $black;
-
+                    
                     &:before {
                         display: inline-block;
                         width: 18px;
